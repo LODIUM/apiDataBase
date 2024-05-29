@@ -43,8 +43,8 @@ public class ControllerOfPurchases {
     }
 
     @PutMapping("api/purchasesChange")
-    public String purchasesChange(@RequestParam Purchases purchases){
-        if (!purchaseRep.existsById(purchases.getClients_id())){
+    public String purchasesChange(@RequestBody Purchases purchases){
+        if (!purchaseRep.existsById(purchases.getId())){
             return "No such row";
         }
         return  purchaseRep.save(purchases).toString();
